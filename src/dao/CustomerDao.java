@@ -43,7 +43,6 @@ public class CustomerDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public Customer getById(int id) {
@@ -92,6 +91,21 @@ public class CustomerDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ArrayList<Customer> query(String query) {
+        ArrayList<Customer> customers = new ArrayList<>();
+        ResultSet rs = null;
+        try {
+            rs = this.connection.createStatement().executeQuery(query);
+            while (rs.next()) {
+                customers.add(this.match(rs));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return customers;
+
     }
 
     public Customer match(ResultSet rs) throws SQLException {
