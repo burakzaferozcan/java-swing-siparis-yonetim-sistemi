@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class ProductDao {
     private Connection connection;
-
     public ProductDao() {
         this.connection = Database.getInstance();
     }

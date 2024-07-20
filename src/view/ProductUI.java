@@ -29,12 +29,13 @@ public class ProductUI extends JFrame {
         this.productController = new ProductController();
 
         this.add(container);
-        this.setTitle("Ürin Ekle Düzenle");
+        this.setTitle("Ürün Ekle Düzenle");
         this.setSize(300, 500);
         this.setVisible(true);
         int x = (Toolkit.getDefaultToolkit().getScreenSize().width - this.getSize().width) / 2;
         int y = (Toolkit.getDefaultToolkit().getScreenSize().height - this.getSize().height) / 2;
         this.setLocation(x, y);
+
         if (this.product.getId() == 0) {
             this.lbl_title.setText("Ürün Ekle");
         } else {
